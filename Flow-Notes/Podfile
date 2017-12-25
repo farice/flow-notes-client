@@ -1,0 +1,4 @@
+target 'Flow-Notes'
+use_frameworks!
+
+pod 'Apollo'
