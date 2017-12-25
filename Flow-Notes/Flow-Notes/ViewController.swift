@@ -15,12 +15,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // Start up local node server at port 4000 before running for ApolloClient to connect
+        // Start up local Node server at port 4000 before running for ApolloClient to connect
         let apollo = ApolloClient(url: URL(string: "http://localhost:4000/graphql")!)
         
-        apollo.fetch(query: HelloWorldQuery) { (result, error) in
-            guard let data = result?.data else { return }
-            print(data?.hello) // "Hello world!"
+        let input = MessageInput(content: "hello, world!", author: "@farice")
+        
+        apollo.perform(mutation: PostMessageMutation(messageInput: input)) { (result, error) in
+            if let id = result?.data?.createMessage?.id {
+                print("Successfully posted message with id: " + id) // Message id
+            } else {
+                print("Mutation failed")
+            }
+            
         }
         
     }

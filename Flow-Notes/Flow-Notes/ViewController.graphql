@@ -1,6 +1,13 @@
-query HelloWorld($rolls: Int!)
-{
-getDie(numSides: 6) {
-roll(numRolls: $rolls)
+query getMessage($id: ID!){
+getMessage(id: $id) {
+id
+content
+author
+}
+}
+
+mutation postMessage($messageInput: MessageInput!){
+createMessage(input: $messageInput) {
+id
 }
 }
