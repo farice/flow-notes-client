@@ -1,4 +1,5 @@
 target 'Flow-Notes'
 use_frameworks!
+platform :ios, '11.2'
 
-pod 'Apollo'
+pod 'Apollo', '~> 0.7.0'
