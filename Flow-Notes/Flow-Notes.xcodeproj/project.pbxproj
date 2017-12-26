@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06387C031FF245C600035818 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C021FF245C600035818 /* Graph.swift */; };
+		06387C051FF2467D00035818 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C041FF2467D00035818 /* Node.swift */; };
+		06387C071FF2485900035818 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C061FF2485900035818 /* Edge.swift */; };
+		06387C091FF24FE300035818 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C081FF24FE300035818 /* Note.swift */; };
 		06A6FC6C1FF17A8B0073BCE8 /* ViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 06A6FC6B1FF17A8B0073BCE8 /* ViewController.graphql */; };
 		06CFB1D31FF170AB00EF11C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFB1D21FF170AB00EF11C3 /* AppDelegate.swift */; };
 		06CFB1D51FF170AB00EF11C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFB1D41FF170AB00EF11C3 /* ViewController.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06387C021FF245C600035818 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		06387C041FF2467D00035818 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		06387C061FF2485900035818 /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
+		06387C081FF24FE300035818 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		06A6FC6B1FF17A8B0073BCE8 /* ViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ViewController.graphql; sourceTree = "<group>"; };
 		06CFB1CF1FF170AB00EF11C3 /* Flow-Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flow-Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CFB1D21FF170AB00EF11C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +52,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06387C0A1FF2538900035818 /* DAG */ = {
+			isa = PBXGroup;
+			children = (
+				06387C021FF245C600035818 /* Graph.swift */,
+				06387C061FF2485900035818 /* Edge.swift */,
+				06387C041FF2467D00035818 /* Node.swift */,
+			);
+			path = DAG;
+			sourceTree = "<group>";
+		};
 		06CFB1C61FF170AB00EF11C3 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +88,8 @@
 				06CFB1D41FF170AB00EF11C3 /* ViewController.swift */,
 				06A6FC6B1FF17A8B0073BCE8 /* ViewController.graphql */,
 				06CFB1D61FF170AB00EF11C3 /* Main.storyboard */,
+				06387C0A1FF2538900035818 /* DAG */,
+				06387C081FF24FE300035818 /* Note.swift */,
 				06CFB1D91FF170AB00EF11C3 /* Assets.xcassets */,
 				06CFB1DB1FF170AB00EF11C3 /* LaunchScreen.storyboard */,
 				06CFB1DE1FF170AB00EF11C3 /* Info.plist */,
@@ -239,6 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06387C031FF245C600035818 /* Graph.swift in Sources */,
+				06387C051FF2467D00035818 /* Node.swift in Sources */,
+				06387C091FF24FE300035818 /* Note.swift in Sources */,
+				06387C071FF2485900035818 /* Edge.swift in Sources */,
 				06CFB1D51FF170AB00EF11C3 /* ViewController.swift in Sources */,
 				06CFB1E71FF1761000EF11C3 /* API.swift in Sources */,
 				06CFB1D31FF170AB00EF11C3 /* AppDelegate.swift in Sources */,
