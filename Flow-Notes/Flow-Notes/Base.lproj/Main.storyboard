@@ -21,6 +21,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="dHO-2c-PRo">
+                        <barButtonItem key="leftBarButtonItem" title="OK" id="Lfi-sw-30l">
+                            <connections>
+                                <action selector="tappedOkaySegue:" destination="BYZ-38-t0r" id="u2s-oM-qav"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="IOQ-rX-l8v">
                             <connections>
                                 <action selector="tappedAddNode:" destination="BYZ-38-t0r" id="0qu-he-nzK"/>
@@ -29,11 +34,46 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addNodeButton" destination="IOQ-rX-l8v" id="n8u-pl-3yP"/>
+                        <outlet property="okButton" destination="Lfi-sw-30l" id="Zlb-zn-vBw"/>
+                        <segue destination="eX1-68-bBI" kind="show" identifier="editNoteSegue" id="4ST-y0-IRM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
+        </scene>
+        <!--Edit Note View Controller-->
+        <scene sceneID="uGw-eV-paT">
+            <objects>
+                <viewController id="eX1-68-bBI" customClass="EditNoteViewController" customModule="Flow_Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="23R-Mw-wUs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1iL-2v-MLJ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1iL-2v-MLJ" firstAttribute="trailing" secondItem="0oR-OR-jbd" secondAttribute="trailing" id="GAV-nt-CrN"/>
+                            <constraint firstItem="1iL-2v-MLJ" firstAttribute="bottom" secondItem="0oR-OR-jbd" secondAttribute="bottom" id="Mhy-2E-ucJ"/>
+                            <constraint firstItem="1iL-2v-MLJ" firstAttribute="top" secondItem="0oR-OR-jbd" secondAttribute="top" id="iHT-fU-Kqf"/>
+                            <constraint firstItem="1iL-2v-MLJ" firstAttribute="leading" secondItem="0oR-OR-jbd" secondAttribute="leading" id="oMh-Vh-L9N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0oR-OR-jbd"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="1iL-2v-MLJ" id="eqn-qC-9zp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DkN-tq-cbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="139.880059970015"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1X5-k0-tNw">

@@ -3,3 +3,4 @@ use_frameworks!
 platform :ios, '11.2'
 
 pod 'Apollo', '~> 0.7.0'
+pod 'RealmSwift'

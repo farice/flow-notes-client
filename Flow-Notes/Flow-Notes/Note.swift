@@ -23,7 +23,7 @@ class Note {
     }
     
     private var text: String
-    private var id: String
+    public var id: String
     
     public func getText() -> String {
         return text;
@@ -38,7 +38,7 @@ class Note {
 
 extension Note: Hashable {
     public var hashValue: Int {
-        return self.text.hashValue
+        return "\(self.id)\(self.text)".hashValue
     }
     
     static func ==(lhs: Note, rhs: Note) -> Bool {

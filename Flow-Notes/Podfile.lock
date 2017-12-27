@@ -2,13 +2,21 @@ PODS:
   - Apollo (0.7.0):
     - Apollo/Core (= 0.7.0)
   - Apollo/Core (0.7.0)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - RealmSwift (3.0.2):
+    - Realm (= 3.0.2)
 
 DEPENDENCIES:
   - Apollo (~> 0.7.0)
+  - RealmSwift
 
 SPEC CHECKSUMS:
   Apollo: d6649ac06168660e70c6226c4eadfc0770791ba5
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
 
-PODFILE CHECKSUM: 2435e99e74b86e51265711429d43453bf2c8ce97
+PODFILE CHECKSUM: e6e50737c5d321157a8ef6982a98b565743c8187
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0.rc.1

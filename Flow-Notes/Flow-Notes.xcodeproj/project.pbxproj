@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		06387C031FF245C600035818 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C021FF245C600035818 /* Graph.swift */; };
 		06387C051FF2467D00035818 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C041FF2467D00035818 /* Node.swift */; };
-		06387C071FF2485900035818 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C061FF2485900035818 /* Edge.swift */; };
 		06387C091FF24FE300035818 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C081FF24FE300035818 /* Note.swift */; };
+		06387C0C1FF257C300035818 /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C0B1FF257C300035818 /* EditNoteViewController.swift */; };
+		06387C0E1FF25AF800035818 /* DataServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C0D1FF25AF800035818 /* DataServer.swift */; };
+		06387C181FF3313F00035818 /* Flow_NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C171FF3313F00035818 /* Flow_NotesTests.swift */; };
+		06387C201FF357F800035818 /* RealmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06387C1F1FF357F800035818 /* RealmModels.swift */; };
 		06A6FC6C1FF17A8B0073BCE8 /* ViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 06A6FC6B1FF17A8B0073BCE8 /* ViewController.graphql */; };
 		06CFB1D31FF170AB00EF11C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFB1D21FF170AB00EF11C3 /* AppDelegate.swift */; };
 		06CFB1D51FF170AB00EF11C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFB1D41FF170AB00EF11C3 /* ViewController.swift */; };
@@ -21,11 +24,26 @@
 		705630ED0EC6C00C1E73B144 /* Pods_Flow_Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E82831916B8DE5E29AFCC9 /* Pods_Flow_Notes.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		06387C1A1FF3313F00035818 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06CFB1C71FF170AB00EF11C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06CFB1CE1FF170AB00EF11C3;
+			remoteInfo = "Flow-Notes";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		06387C021FF245C600035818 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		06387C041FF2467D00035818 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		06387C061FF2485900035818 /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
 		06387C081FF24FE300035818 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		06387C0B1FF257C300035818 /* EditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
+		06387C0D1FF25AF800035818 /* DataServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServer.swift; sourceTree = "<group>"; };
+		06387C151FF3313F00035818 /* Flow-NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flow-NotesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		06387C171FF3313F00035818 /* Flow_NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow_NotesTests.swift; sourceTree = "<group>"; };
+		06387C191FF3313F00035818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06387C1F1FF357F800035818 /* RealmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModels.swift; sourceTree = "<group>"; };
 		06A6FC6B1FF17A8B0073BCE8 /* ViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ViewController.graphql; sourceTree = "<group>"; };
 		06CFB1CF1FF170AB00EF11C3 /* Flow-Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flow-Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CFB1D21FF170AB00EF11C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +59,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		06387C121FF3313F00035818 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06CFB1CC1FF170AB00EF11C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,16 +81,25 @@
 			isa = PBXGroup;
 			children = (
 				06387C021FF245C600035818 /* Graph.swift */,
-				06387C061FF2485900035818 /* Edge.swift */,
 				06387C041FF2467D00035818 /* Node.swift */,
 			);
 			path = DAG;
+			sourceTree = "<group>";
+		};
+		06387C161FF3313F00035818 /* Flow-NotesTests */ = {
+			isa = PBXGroup;
+			children = (
+				06387C171FF3313F00035818 /* Flow_NotesTests.swift */,
+				06387C191FF3313F00035818 /* Info.plist */,
+			);
+			path = "Flow-NotesTests";
 			sourceTree = "<group>";
 		};
 		06CFB1C61FF170AB00EF11C3 = {
 			isa = PBXGroup;
 			children = (
 				06CFB1D11FF170AB00EF11C3 /* Flow-Notes */,
+				06387C161FF3313F00035818 /* Flow-NotesTests */,
 				06CFB1D01FF170AB00EF11C3 /* Products */,
 				12283C5FF3E0AB4693E17E37 /* Pods */,
 				CBD1ADCB76967781BD360F5C /* Frameworks */,
@@ -76,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				06CFB1CF1FF170AB00EF11C3 /* Flow-Notes.app */,
+				06387C151FF3313F00035818 /* Flow-NotesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,13 +118,16 @@
 		06CFB1D11FF170AB00EF11C3 /* Flow-Notes */ = {
 			isa = PBXGroup;
 			children = (
+				06387C1F1FF357F800035818 /* RealmModels.swift */,
 				06CFB1E61FF1761000EF11C3 /* API.swift */,
 				06CFB1D21FF170AB00EF11C3 /* AppDelegate.swift */,
+				06387C0B1FF257C300035818 /* EditNoteViewController.swift */,
 				06CFB1D41FF170AB00EF11C3 /* ViewController.swift */,
+				06387C0D1FF25AF800035818 /* DataServer.swift */,
 				06A6FC6B1FF17A8B0073BCE8 /* ViewController.graphql */,
 				06CFB1D61FF170AB00EF11C3 /* Main.storyboard */,
-				06387C0A1FF2538900035818 /* DAG */,
 				06387C081FF24FE300035818 /* Note.swift */,
+				06387C0A1FF2538900035818 /* DAG */,
 				06CFB1D91FF170AB00EF11C3 /* Assets.xcassets */,
 				06CFB1DB1FF170AB00EF11C3 /* LaunchScreen.storyboard */,
 				06CFB1DE1FF170AB00EF11C3 /* Info.plist */,
@@ -117,6 +155,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		06387C141FF3313F00035818 /* Flow-NotesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06387C1C1FF3314000035818 /* Build configuration list for PBXNativeTarget "Flow-NotesTests" */;
+			buildPhases = (
+				06387C111FF3313F00035818 /* Sources */,
+				06387C121FF3313F00035818 /* Frameworks */,
+				06387C131FF3313F00035818 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06387C1B1FF3313F00035818 /* PBXTargetDependency */,
+			);
+			name = "Flow-NotesTests";
+			productName = "Flow-NotesTests";
+			productReference = 06387C151FF3313F00035818 /* Flow-NotesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		06CFB1CE1FF170AB00EF11C3 /* Flow-Notes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06CFB1E11FF170AB00EF11C3 /* Build configuration list for PBXNativeTarget "Flow-Notes" */;
@@ -148,6 +204,11 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Pauca, Inc.";
 				TargetAttributes = {
+					06387C141FF3313F00035818 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 06CFB1CE1FF170AB00EF11C3;
+					};
 					06CFB1CE1FF170AB00EF11C3 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -168,11 +229,19 @@
 			projectRoot = "";
 			targets = (
 				06CFB1CE1FF170AB00EF11C3 /* Flow-Notes */,
+				06387C141FF3313F00035818 /* Flow-NotesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		06387C131FF3313F00035818 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06CFB1CD1FF170AB00EF11C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,10 +293,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Flow-Notes/Pods-Flow-Notes-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -255,14 +328,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		06387C111FF3313F00035818 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06387C181FF3313F00035818 /* Flow_NotesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06CFB1CB1FF170AB00EF11C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06387C201FF357F800035818 /* RealmModels.swift in Sources */,
 				06387C031FF245C600035818 /* Graph.swift in Sources */,
 				06387C051FF2467D00035818 /* Node.swift in Sources */,
+				06387C0C1FF257C300035818 /* EditNoteViewController.swift in Sources */,
+				06387C0E1FF25AF800035818 /* DataServer.swift in Sources */,
 				06387C091FF24FE300035818 /* Note.swift in Sources */,
-				06387C071FF2485900035818 /* Edge.swift in Sources */,
 				06CFB1D51FF170AB00EF11C3 /* ViewController.swift in Sources */,
 				06CFB1E71FF1761000EF11C3 /* API.swift in Sources */,
 				06CFB1D31FF170AB00EF11C3 /* AppDelegate.swift in Sources */,
@@ -270,6 +353,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06387C1B1FF3313F00035818 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06CFB1CE1FF170AB00EF11C3 /* Flow-Notes */;
+			targetProxy = 06387C1A1FF3313F00035818 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		06CFB1D61FF170AB00EF11C3 /* Main.storyboard */ = {
@@ -291,6 +382,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		06387C1D1FF3314000035818 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4EU7KH7ZUS;
+				INFOPLIST_FILE = "Flow-NotesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Pauca.Flow-NotesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flow-Notes.app/Flow-Notes";
+			};
+			name = Debug;
+		};
+		06387C1E1FF3314000035818 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4EU7KH7ZUS;
+				INFOPLIST_FILE = "Flow-NotesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Pauca.Flow-NotesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flow-Notes.app/Flow-Notes";
+			};
+			name = Release;
+		};
 		06CFB1DF1FF170AB00EF11C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -433,6 +556,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		06387C1C1FF3314000035818 /* Build configuration list for PBXNativeTarget "Flow-NotesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06387C1D1FF3314000035818 /* Debug */,
+				06387C1E1FF3314000035818 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		06CFB1CA1FF170AB00EF11C3 /* Build configuration list for PBXProject "Flow-Notes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

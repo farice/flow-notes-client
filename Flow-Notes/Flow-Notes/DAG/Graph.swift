@@ -10,17 +10,18 @@
 
 import Foundation
 
-private class EdgeList<T> where T: Hashable {
+private class AdjList<T> where T: Hashable {
     
     var node: Node<T>
-    var edges: [Edge<T>]?
+    var adjNodes: [Node<T>]?
     
     init(node: Node<T>) {
         self.node = node
+        adjNodes = [Node<T>]()
     }
     
-    func addEdge(_ edge: Edge<T>) {
-        edges?.append(edge)
+    func addAdj(_ node: Node<T>) {
+        adjNodes?.append(node)
     }
     
 }
@@ -28,16 +29,19 @@ private class EdgeList<T> where T: Hashable {
 // Graph represented as an adjacency list
 public class ALGraph<T>: CustomStringConvertible where T: Hashable {
     
-    fileprivate var adjacencyList: [EdgeList<T>] = []
+    fileprivate var adjacencyList: [AdjList<T>] = []
     
     public required init() {}
     
     public required init(fromGraph graph: ALGraph<T>) {
-        for edge in graph.edges {
-            let from = createNode(edge.from.data)
-            let to = createNode(edge.to.data)
-            
-            addDirectedEdge(from, to: to)
+        for adjList in graph.adjacencyList {
+            let from = createNode(adjList.node.data)
+            if let adjNodes = adjList.adjNodes {
+            for adjNode in adjNodes {
+                let to = createNode(adjNode.data)
+                addDirectedEdge(from, to: to)
+            }
+            }
         }
     }
     
@@ -49,57 +53,38 @@ public class ALGraph<T>: CustomStringConvertible where T: Hashable {
         return nodes
     }
     
-    public var edges: [Edge<T>] {
-        var allEdges = Set<Edge<T>>()
-        for edgeList in adjacencyList {
-            guard let edges = edgeList.edges else {
-                continue
-            }
-            
-            for edge in edges {
-                allEdges.insert(edge)
-            }
-        }
-        return Array(allEdges)
-    }
-    
     public func createNode(_ data: T) -> Node<T> {
         // Create a new one
         let node = Node(data: data, index: adjacencyList.count)
-        adjacencyList.append(EdgeList(node: node))
+        adjacencyList.append(AdjList(node: node))
         return node
     }
     
-    public func addDirectedEdge(_ from: Node<T>, to: Node<T>) {
+    public func addDirectedEdge(_ fromNode: Node<T>, to toNode: Node<T>) {
         // works
-        let edge = Edge(from: from, to: to)
-        let edgeList = adjacencyList[from.index]
-        if edgeList.edges != nil {
-            edgeList.addEdge(edge)
-        } else {
-            edgeList.edges = [edge]
-        }
+        let adjList = adjacencyList[fromNode.index]
+        adjList.addAdj(toNode)
     }
     
-    public func edgesFrom(_ sourceNode: Node<T>) -> [Edge<T>] {
-        return adjacencyList[sourceNode.index].edges ?? []
+    public func nodesFrom(_ sourceNode: Node<T>) -> [Node<T>] {
+        return adjacencyList[sourceNode.index].adjNodes ?? []
     }
     
     public var description: String {
         var rows = [String]()
-        for edgeList in adjacencyList {
+        for adjList in adjacencyList {
             
-            guard let edges = edgeList.edges else {
+            guard let nodes = adjList.adjNodes else {
                 continue
             }
             
             var row = [String]()
-            for edge in edges {
-                let value = "\(edge.to.data)"
+            for node in nodes {
+                let value = "\(node.data)"
                 row.append(value)
             }
             
-            rows.append("\(edgeList.node.data) -> [\(row.joined(separator: ", "))]")
+            rows.append("\(adjList.node.data) -> [\(row.joined(separator: ", "))]")
         }
         
         return rows.joined(separator: "\n")

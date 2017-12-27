@@ -13,36 +13,31 @@ import Apollo
 class ViewController: UIViewController {
 
     // New node/bullet point button
-    // Alternative is force-touching an existing node
+    // Alternative is force-touching an existing node (perhaps)
     @IBOutlet weak var addNodeButton: UIBarButtonItem!
+    // Tap this button once you've selected the preceding note
+    @IBOutlet weak var okButton: UIBarButtonItem!
+
+    var sharedInstance = DataServer.sharedInstance
     
-    var apollo: ApolloClient?
+    // DAG represented as adjacency list
     var noteGraph: ALGraph<Note>?
+    var precedingNode: Node<Note>?
+    // True when we're selecting the preceding node for our new node we're about to create
+    var selectingPrecNode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // Start up local Node server at port 4000 before running for ApolloClient to connect
-        self.apollo = ApolloClient(url: URL(string: "http://localhost:4000/graphql")!)
-        
-        /*
-        let input = MessageInput(content: "hello, world!", author: "@farice")
-        
-        apollo.perform(mutation: PostMessageMutation(messageInput: input)) { (result, error) in
-            if let id = result?.data?.createMessage?.id {
-                print("Successfully posted message with id: " + id) // Message id
-            } else {
-                print("Mutation failed")
-            }
-            
-        } */
-        
         // TODO: - We'll want to pass this in to the view so we can initialize a non-empty DAG
         // In the future, this view would be accessed by either selecting a previously modified DAG or choosing to start anew
         // Hence, we should precede this VC with a TableView to make this choice
-        
+        // Side note: I'd like to use Realm for local persistence
         self.noteGraph = ALGraph<Note>()
+        
+        self.addNodeButton.isEnabled = true
+        self.okButton.isEnabled = false
         
     }
 
@@ -51,19 +46,44 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // Called to create new note node with previous node specified
-    func segueWithNode() {
-        
+    func refreshNavButtons() {
+        self.addNodeButton.isEnabled = !selectingPrecNode
+        self.okButton.isEnabled = selectingPrecNode
     }
     
     // MARK: - Actions
     
     @IBAction func tappedAddNode(_ sender: UIBarButtonItem) {
         // User wants to add node, first must specify preceding node
+        self.title = "Select a preceding node?"
+        self.selectingPrecNode = true
+        self.refreshNavButtons()
     }
     
+    @IBAction func tappedOkaySegue(_ sender: UIBarButtonItem) {
+        self.title = ""
+        self.selectingPrecNode = false
+        self.refreshNavButtons()
+        
+        self.performSegue(withIdentifier: "editNoteSegue", sender: self)
+    }
     
+    // MARK: - Navigation
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if let sender = sender as? ViewController {
+            if segue.identifier == "editNoteSegue" {
+                if let destination = segue.destination as? EditNoteViewController {
+                    // Would prefer doing this asynchronously
+                    let newNode = sharedInstance.addNoteNode(prevNode: precedingNode, graph: self.noteGraph!)
+                    destination.node = newNode
+                }
+            }
+        }
+    }
 
 }
 
